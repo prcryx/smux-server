@@ -2,7 +2,7 @@ package config
 
 import (
 	"log"
-	"smux/internal/common/constants"
+	"smux/internals/common/constants"
 	"sync"
 
 	godotenv "github.com/joho/godotenv"
