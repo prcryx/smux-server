@@ -30,7 +30,15 @@ Before running the project, make sure you have the following:
    ```sh
    go install github.com/google/wire/cmd/wire@latest
    ```
-5. Run the App:
+5. create .env file:
+
+   ```sh
+   SERVER_PORT=8080
+   OS_NAME=windows
+   ARCH_NAME=amd64
+   ```
+
+6. Run the App:
    ```sh
    make run
    ```
@@ -128,4 +136,3 @@ Before running the project, make sure you have the following:
                 appversion.valobj.go
 
 ```
-
