@@ -1,9 +1,11 @@
 package main
 
 import (
-	"log"
 	"os"
 	"smux/config"
+	"smux/di/wire"
+	"smux/internals/application/server"
+	"smux/internals/common/constants/routerconst"
 )
 
 func main() {
@@ -20,5 +22,23 @@ func main() {
 		return
 	}
 
-	log.Println(configVars)
+	controllerRegistry, err := wire.InitializeControllerRegistry()
+	if err != nil {
+		exitCode = 1
+		return
+	}
+
+	// init server
+	srv, serverError := wire.InitServer(controllerRegistry, configVars, routerconst.V1)
+	if serverError != nil {
+		exitCode = 1
+		return
+	}
+
+	//start the server
+	srvErr := server.StartServer(srv)
+	if srvErr != nil {
+		exitCode = 1
+		return
+	}
 }

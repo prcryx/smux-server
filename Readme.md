@@ -136,3 +136,8 @@ Before running the project, make sure you have the following:
                 appversion.valobj.go
 
 ```
+
+## Next Tasks
+
+- Testing
+- Benchmarking
