@@ -8,6 +8,10 @@ ARCH := $(ARCH_NAME)
 
 .PHONY: all build clean
 
+gen:
+	@echo "generating wire_gen.go..."
+	@wire ./...
+
 build:
 	@echo "building..."
 	@GOARCH=$(ARCH) GOOS=$(OS) go build -o build/$(BINARY_NAME)-$(OS) cmd/app/main.go
